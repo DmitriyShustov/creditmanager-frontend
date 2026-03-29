@@ -31,3 +31,30 @@ export async function createApplication(requestData) {
         };
     }
 }
+
+export async function signAgreement(applicationId) {
+    try {
+        const response = await fetch(`${APPLICATION_URL}/${applicationId}/sign`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+
+        if (!response.ok) {
+            const errorData = await parseErrorResponse(response);
+            throw new Error(errorData.message);
+        }
+
+        const data = await response.json();
+        return { success: true, data };
+    } catch (error) {
+        console.error("API Error in signAgreement:", error);
+        const errorMessage = error.message || "Не удалось подписать договор. Пожалуйста, проверьте номер заявки и попробуйте снова.";
+        showErrorAlert(error, "Не удалось подписать договор. Пожалуйста, проверьте номер заявки и попробуйте снова.");
+        return {
+            success: false,
+            error: errorMessage
+        };
+    }
+}
