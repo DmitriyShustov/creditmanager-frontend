@@ -1,0 +1,9 @@
+.main-theme {
+    --background-color: #f4f4f4;
+    --background-color-alt: #000000;
+    --text-color: #000000;
+    --text-color-alt: #f4f4f4;
+    --primary-color: #ef3124;
+    --secondary-color: #f3f4f6;
+    --disabled-color: #bababa;
+}
