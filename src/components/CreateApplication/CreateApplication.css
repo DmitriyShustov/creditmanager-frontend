@@ -1,0 +1,39 @@
+@import "../../static/base.css";
+
+.create-application {
+    padding: 0 10vw;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2vw;
+    justify-content: flex-start;
+}
+
+.form-group label {
+    width: 20%;
+}
+
+.form-group input {
+    width: 30%;
+}
+
+.error-message {
+    padding-left: 2vw;
+    color: var(--primary-color);
+}
+
+.form-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+    padding-bottom: 50px;
+}
+
