@@ -58,3 +58,39 @@ export async function signAgreement(applicationId) {
         };
     }
 }
+
+export async function findClients(filters, page = 1) {
+    try {
+        const params = new URLSearchParams();
+        params.append('page', page);
+
+        if (filters.phone) params.append('phone', filters.phone);
+        if (filters.passport) params.append('passport', filters.passport);
+        if (filters.firstName) params.append('firstName', filters.firstName);
+        if (filters.lastName) params.append('lastName', filters.lastName);
+        if (filters.middleName) params.append('middleName', filters.middleName);
+
+        const response = await fetch(`${CLIENT_URL}/find?${params.toString()}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+
+        if (!response.ok) {
+            const errorData = await parseErrorResponse(response);
+            throw new Error(errorData.message);
+        }
+
+        const data = await response.json();
+        return { success: true, data };
+    } catch (error) {
+        console.error("API Error in findClients:", error);
+        const errorMessage = error.message || "Не удалось найти клиентов. Пожалуйста, попробуйте позже.";
+        showErrorAlert(error, "Не удалось найти клиентов. Пожалуйста, попробуйте позже.");
+        return {
+            success: false,
+            error: errorMessage
+        };
+    }
+}
