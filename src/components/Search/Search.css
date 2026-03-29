@@ -1,0 +1,15 @@
+@import "../../static/base.css";
+
+.second-header {
+    padding: 0 10vw;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: var(--background-color-alt);
+    color: var(--text-color-alt);
+    font-size: 1.8vw;
+    gap: 2vw;
+    border-top: solid 1px;
+    border-color: var(--primary-color);
+}
