@@ -1,0 +1,17 @@
+.find-applications {
+    padding: 0 10vw 20px;
+}
+
+.application-card {
+    border: solid 1px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    padding: 10px 5px;
+}
+
+.stats {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 10px;
+}
