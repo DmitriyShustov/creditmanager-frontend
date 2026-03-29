@@ -1,0 +1,25 @@
+@import "../../static/variables.css";
+@import "../../static/base.css";
+
+.header {
+    padding: 0 10vw;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    background-color: var(--background-color-alt);
+    color: var(--text-color-alt);
+    font-size: 28px;
+}
+
+.left-header {
+    width: 25%;
+    color: var(--primary-color);
+}
+
+.right-header {
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 3vw;
+}
