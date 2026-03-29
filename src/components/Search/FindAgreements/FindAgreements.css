@@ -1,0 +1,10 @@
+.find-agreements {
+    padding: 0 10vw 20px;
+}
+
+.agreement-card {
+    border: solid 1px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    padding: 10px 5px;
+}

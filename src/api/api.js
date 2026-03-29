@@ -124,3 +124,33 @@ export async function findApplications(page = 1) {
         };
     }
 }
+
+export async function findSignedAgreements(page = 1) {
+    try {
+        const params = new URLSearchParams();
+        params.append('page', page);
+
+        const response = await fetch(`${AGREEMENT_URL}/find/signed?${params.toString()}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+
+        if (!response.ok) {
+            const errorData = await parseErrorResponse(response);
+            throw new Error(errorData.message);
+        }
+
+        const data = await response.json();
+        return { success: true, data };
+    } catch (error) {
+        console.error("API Error in findSignedAgreements:", error);
+        const errorMessage = error.message || "Не удалось найти подписанные договоры. Пожалуйста, попробуйте позже.";
+        showErrorAlert(error, "Не удалось найти подписанные договоры. Пожалуйста, попробуйте позже.");
+        return {
+            success: false,
+            error: errorMessage
+        };
+    }
+}
